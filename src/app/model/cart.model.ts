@@ -14,7 +14,7 @@ export class Cart {
     public itemCount: number = 0;
     public cartPrice: number = 0;
 
-    addLine(product: Product, quantity: number = 1) {            
+    addLine(product: Product, quantity: number = 1) {
         let line = this.lines.find(line => line.product.id === product.id);
 
         if (line !== undefined) {
@@ -27,9 +27,9 @@ export class Cart {
     }
 
     updateQuantity(product: Product, quantity: number) {
-        let line = this.lines.find(line => line.product.id === product.id);
+        const line = this.lines.find(line => line.product.id === product.id);
 
-        if(line != undefined) {
+        if (line !== undefined) {
             line.quantity = Number(quantity);
         }
 
@@ -37,7 +37,7 @@ export class Cart {
     }
 
     removeLine(id: number) {
-        let index = this.lines.findIndex(line => line.product.id === id);
+        const index = this.lines.findIndex(line => line.product.id === id);
         this.lines.splice(index, 1);
         this.recalculate();
     }
@@ -66,5 +66,5 @@ export class CartLine {
     get lineTotal() {
         return this.quantity * this.product.price;
     }
-    
+
 }

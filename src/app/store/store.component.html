@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col bg-dark text-white">
             <a class="navbar-brand">SPORTS STORE</a>
+            <cart-summary></cart-summary>
         </div>
     </div>
 
@@ -33,6 +34,11 @@
 
                 <div class="card-text bg-white p-1">
                     {{product.description}}
+
+                    <button class="btn btn-success btn-sm float-right"
+                            (click)="addProductToCart(product)">
+                        Add to cart
+                    </button>
                 </div>
 
             </div>
